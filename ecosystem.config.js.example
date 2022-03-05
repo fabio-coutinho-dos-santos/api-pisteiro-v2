@@ -1,0 +1,20 @@
+module.exports = {
+  apps : [{
+    name: 'api-v2-user',
+    script: 'dist/main.js',
+    instances: 1,
+    autorestart: true,
+    watch: true,
+    env: {
+      MONGO_CONNECTION_STRING_BASE:'mongodb+srv://',
+      MONGO_USER:'pisteiro-dev',
+      MONGO_PASS:'****************',
+      MONGO_CLUSTER_USER:'pisteiro-v2-user',
+      MONGO_CLUSTER_DOMAIN:'*****.mongodb.net',
+      MONGO_DATABASE_USER:'pisteiro',
+      MONGO_CONNECTION_STRING_OPTIONS:'retryWrites=true&w=majority',
+      clientId:'**************************',
+      authority:'https://cognito-idp.??-????-?.amazonaws.com/??-????-?_*********',
+    }
+  }],
+};
