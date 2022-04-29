@@ -13,7 +13,7 @@ export class User {
   nome: string;
 
   @Prop({ required: true })
-  sobreNome: string;
+  sobrenome: string;
 
   @Prop()
   hashCPF: string;
