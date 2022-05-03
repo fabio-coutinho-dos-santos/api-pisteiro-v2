@@ -18,18 +18,21 @@ import { UserModule } from './user/user.module';
   imports: [
     ConfigModule.forRoot(),
     PassportModule.register({ defaultStrategy: 'jwt' }),
+    // MongooseModule.forRoot(
+    //   `${process.env.MONGO_CONNECTION_STRING_BASE}://${
+    //     process.env.MONGO_USER
+    //   }:${process.env.MONGO_PASS}@${process.env.MONGO_CLUSTER_USER}.${
+    //     process.env.MONGO_CLUSTER_DOMAIN
+    //   }/${process.env.MONGO_DATABASE_USER}${
+    //     process.env.MONGO_CONNECTION_STRING_OPTIONS &&
+    //     process.env.MONGO_CONNECTION_STRING_OPTIONS.length > 0
+    //       ? '?' + process.env.MONGO_CONNECTION_STRING_OPTIONS
+    //       : ''
+    //   }`,
+    //   { connectionName: 'USER' },
+    // ),
     MongooseModule.forRoot(
-      `${process.env.MONGO_CONNECTION_STRING_BASE}://${
-        process.env.MONGO_USER
-      }:${process.env.MONGO_PASS}@${process.env.MONGO_CLUSTER_USER}.${
-        process.env.MONGO_CLUSTER_DOMAIN
-      }/${process.env.MONGO_DATABASE_USER}${
-        process.env.MONGO_CONNECTION_STRING_OPTIONS &&
-        process.env.MONGO_CONNECTION_STRING_OPTIONS.length > 0
-          ? '?' + process.env.MONGO_CONNECTION_STRING_OPTIONS
-          : ''
-      }`,
-      { connectionName: 'USER' },
+      'mongodb://nodeauth:nodeauth@db-api-v2-user:27017/nodeauth?authSource=admin',{ connectionName: 'USER' }
     ),
     BalanceModule,
     CampeonatoModule,
